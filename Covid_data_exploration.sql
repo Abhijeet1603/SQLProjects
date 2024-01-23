@@ -1,3 +1,4 @@
+-- Firstly, we will clean the data of off any redundancies and unrequired errors
 SELECT * FROM Portfolio_Project.dbo.covid_deaths
 where continent is not null
 order by 3,4;
@@ -5,7 +6,7 @@ order by 3,4;
 SELECT * FROM Portfolio_Project.dbo.covid_vaccination
 order by 3,4;
 
---Selecting the data that we are going to use
+--Selecting the data that we are going to use to find insights in the data
 SELECT Location, date, total_cases, new_cases, total_deaths, population  
 FROM Portfolio_Project.dbo.covid_deaths
 where continent is not null
@@ -127,8 +128,7 @@ SELECT *, (Convert(float,rolling_people_vaccinated)/population) as percentage_po
 FROM PercentPopulationVaccinated
 
 -- Creating View  to store data for later visualization 
- 
- USE model;
+USE model;
 GO
 CREATE VIEW h AS 
 
